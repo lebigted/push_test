@@ -6,7 +6,7 @@
 /*   By: ltestard <ltestard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 10:57:32 by ltestard          #+#    #+#             */
-/*   Updated: 2023/06/26 06:59:05 by ltestard         ###   ########.fr       */
+/*   Updated: 2023/06/26 09:45:53 by ltestard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ typedef struct s_pile
 	long int		*tab;
 	long int		*set_index;
 	int				size;
-	int				*numbers;
-	int				count;
 	struct s_pile	*next;
 }t_pile;
 

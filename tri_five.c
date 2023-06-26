@@ -6,13 +6,13 @@
 /*   By: ltestard <ltestard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 17:30:04 by ltestard          #+#    #+#             */
-/*   Updated: 2023/06/26 07:06:07 by ltestard         ###   ########.fr       */
+/*   Updated: 2023/06/26 08:11:17 by ltestard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int pile_size(t_pile *pile)
+int	pile_size(t_pile *pile)
 {
 	t_pile	*tmp;
 	int		size;
@@ -31,8 +31,8 @@ void	get_push_min(t_pile **pile_a, t_pile **pile_b, int n)
 {
 	t_pile	*tmp;
 	t_pile	*min;
-	int     min_index;
-	int     index;
+	int		min_index;
+	int		index;
 
 	while (n--)
 	{
@@ -50,20 +50,13 @@ void	get_push_min(t_pile **pile_a, t_pile **pile_b, int n)
 			tmp = tmp->next;
 			index++;
 		}
-		if ((*pile_a) == min) 
-		{
-			push_b(pile_a, pile_b);
-		}
-		else 
-		{
-			if (min_index > pile_size(*pile_a) / 2)
-				while ((*pile_a) != min)
-					reverse_rotate(pile_a);
-			else
-				while ((*pile_a) != min)
-					rotate(pile_a);
-			push_b(pile_a, pile_b);
-		}
+		if (min_index > pile_size(*pile_a) / 2)
+			while ((*pile_a) != min)
+				reverse_rotate(pile_a);
+		else
+			while ((*pile_a) != min)
+				rotate(pile_a);
+		push_b(pile_a, pile_b);
 	}
 }
 
@@ -134,8 +127,5 @@ t_pile	*sort_list_of_five(t_pile *pile_a, t_pile *pile_b)
 		push_a(&pile_a, &pile_b);
 		i++;
 	}
-	pile_a = sort_list_of_three(pile_a);
 	return (pile_a);
 }
-
-

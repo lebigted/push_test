@@ -6,7 +6,7 @@
 /*   By: ltestard <ltestard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 20:07:11 by ltestard          #+#    #+#             */
-/*   Updated: 2023/06/19 09:46:59 by ltestard         ###   ########.fr       */
+/*   Updated: 2023/06/26 10:16:56 by ltestard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,6 @@ char	**ft_split(char const *s, char c)
 	nbr_word = word_in_str(s, c);
 	tstr = ft_calloc((word_in_str((char *)s, c) + 1), sizeof(char *));
 	if (!tstr)
-	{
 		return (NULL);
-	}
 	return (ft_split_bis(s, tstr, c));
 }
