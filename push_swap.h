@@ -6,7 +6,7 @@
 /*   By: ltestard <ltestard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 10:57:32 by ltestard          #+#    #+#             */
-/*   Updated: 2023/06/22 16:32:16 by ltestard         ###   ########.fr       */
+/*   Updated: 2023/06/26 06:59:05 by ltestard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int			ft_pilesize(t_pile *pile);
 int			check_tri(t_pile **pile);
 int			check_duplicate(long int *pile, int size, int nb);
 int			sort_invers(t_pile **pile_a);
+int			is_sort(t_pile *pile_a);
 
 size_t		ft_strlen(const char *str);
 
@@ -59,7 +60,6 @@ t_pile		*sort_list_of_four(t_pile *pile_a, t_pile *pile_b);
 t_pile		*sort_list_of_five(t_pile *pile_a, t_pile *pile_b);
 t_pile		*create_pile_from_arguments(int argc, char **argv);
 t_pile		*create_for_one(char *num);
-
 void		verif_pile(t_pile **pile_a);
 void		get_push_min(t_pile **pile_a, t_pile **pile_b, int n);
 void		exit_errorparse(char *mess);
@@ -70,4 +70,8 @@ void		ft_putstr(const char *str);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_bzero(void *s, size_t n);
 void		*ft_calloc(size_t count, size_t size);
+
+void	print_pile(t_pile *pile);
+
+
 #endif

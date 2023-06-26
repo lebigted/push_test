@@ -6,7 +6,7 @@
 /*   By: ltestard <ltestard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 10:34:54 by ltestard          #+#    #+#             */
-/*   Updated: 2023/06/22 16:31:48 by ltestard         ###   ########.fr       */
+/*   Updated: 2023/06/26 05:13:38 by ltestard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	sort_pile(t_pile *pile)
 	{
 		if (!pile->next)
 			return (1);
-		if (pile->set_index < pile->next->set_index)
+		if (pile->value < pile->next->value)
 			pile = pile->next;
 		else
 			return (0);
@@ -34,9 +34,9 @@ int	check_case(t_pile *pile)
 
 	if (pile == NULL || pile->next == NULL || pile->next->next == NULL)
 		return (-1);
-	a = *(pile->set_index);
-	b = *(pile->next->set_index);
-	c = *(pile->next->next->set_index);
+	a = pile->value;
+	b = pile->next->value;
+	c = pile->next->next->value;
 	if (a > b && a < c)
 		return (1);
 	if (a > b && b > c)

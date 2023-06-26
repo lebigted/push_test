@@ -6,7 +6,7 @@
 /*   By: ltestard <ltestard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 12:54:00 by ltestard          #+#    #+#             */
-/*   Updated: 2023/06/22 17:22:17 by ltestard         ###   ########.fr       */
+/*   Updated: 2023/06/26 05:53:49 by ltestard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,23 +62,23 @@ int	ft_atoi(char *str)
 	return (result);
 }
 
-void    add_to_pile(t_pile **a, int c)
+void	add_to_pile(t_pile **a, int c)
 {
-    t_pile    *last;
-    t_pile    *new;
+	t_pile	*last;
+	t_pile	*new;
 
-    new = malloc(sizeof(t_pile));
-    if (!new)
-        return ;
-    new->next = NULL;
-    new->value = c;
-    if (!*a)
-    {
-        *a = new;
-        return ;
-    }
-    last = *a;
-    while (last->next)
-        last = last->next;
-    last->next = new;
+	new = malloc(sizeof(t_pile));
+	if (!new)
+		return ;
+	new->next = NULL;
+	new->value = c;
+	if (!*a)
+	{
+		*a = new;
+		return ;
+	}
+	last = *a;
+	while (last->next)
+		last = last->next;
+	last->next = new;
 }

@@ -6,7 +6,7 @@
 /*   By: ltestard <ltestard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 10:25:14 by ltestard          #+#    #+#             */
-/*   Updated: 2023/06/22 16:32:28 by ltestard         ###   ########.fr       */
+/*   Updated: 2023/06/26 05:56:44 by ltestard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	check_tri(t_pile **pile)
 	i = ft_pilesize(tmp);
 	while (i > 0 && tmp->next != NULL)
 	{
-		if (tmp->set_index > tmp->next->set_index)
+		if (tmp->value > tmp->next->value)
 			return (1);
 		tmp = tmp->next;
 		i--;
@@ -58,7 +58,7 @@ void	radix_sort(t_pile *pile_a, t_pile *pile_b)
 
 	j = 0;
 	get_max(pile_a, &maxnum, &maxbit);
-	while (j < maxbit)
+	while (pile_b || !is_sort(pile_a))
 	{
 		i = ft_pilesize(pile_a);
 		while (--i >= 0)

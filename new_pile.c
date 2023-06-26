@@ -6,7 +6,7 @@
 /*   By: ltestard <ltestard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:06:34 by ltestard          #+#    #+#             */
-/*   Updated: 2023/06/22 17:38:19 by ltestard         ###   ########.fr       */
+/*   Updated: 2023/06/26 05:51:53 by ltestard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,8 @@ t_pile	*create_pile_from_arguments(int argc, char **argv)
 		check_duplicate(pile->tab, i, pile->tab[i - 1]);
 		i++;
 	}
-    pile->set_index = s_index(pile);
 	return (pile);
 }
-
 
 void	free_utils(char **ar)
 {
@@ -76,7 +74,5 @@ t_pile	*create_for_one(char *num)
 		i++;
 	}
 	free_utils(ar);
-    pile->set_index = s_index(pile);
 	return (pile);
 }
-

@@ -6,7 +6,7 @@
 #    By: ltestard <ltestard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/27 10:57:27 by ltestard          #+#    #+#              #
-#    Updated: 2023/06/19 15:53:39 by ltestard         ###   ########.fr        #
+#    Updated: 2023/06/26 07:12:41 by ltestard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	gcc $(CFLAGS) -o $(CURDIR)/$(NAME) $(OBJ) -fsanitize=address
+	gcc $(CFLAGS) -o $(CURDIR)/$(NAME) $(OBJ)
 
 %.o: %.c
 	gcc $(CFLAGS) -c $< -o $@

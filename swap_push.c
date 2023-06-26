@@ -6,7 +6,7 @@
 /*   By: ltestard <ltestard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:01:16 by ltestard          #+#    #+#             */
-/*   Updated: 2023/06/22 16:31:58 by ltestard         ###   ########.fr       */
+/*   Updated: 2023/06/26 05:54:47 by ltestard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	swap(t_pile **pile)
 	ft_putstr("sa\n");
 	return (0);
 }
+
 int	push_b(t_pile **pile_a, t_pile **pile_b)
 {
 	t_pile	*temp;

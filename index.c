@@ -6,7 +6,7 @@
 /*   By: ltestard <ltestard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 07:22:54 by ltestard          #+#    #+#             */
-/*   Updated: 2023/06/20 15:32:02 by ltestard         ###   ########.fr       */
+/*   Updated: 2023/06/26 05:49:40 by ltestard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static long int	g_index(t_pile *pile, int nb)
 {
-	int			i;
+	int	i;
 	int	res;
 
 	i = 0;
@@ -25,13 +25,13 @@ static long int	g_index(t_pile *pile, int nb)
 			res++;
 		i++;
 	}
-	return (0);
+	return (res);
 }
 
 long int	*s_index(t_pile *pile)
 {
-	int	*index;
-	int			i;
+	long	*index;
+	int		i;
 
 	index = malloc(sizeof(long int) * pile->size);
 	if (!index)
@@ -42,5 +42,5 @@ long int	*s_index(t_pile *pile)
 		index[i] = g_index(pile, pile->tab[i]);
 		i++;
 	}
-	return (0);
+	return (index);
 }
