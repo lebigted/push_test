@@ -6,49 +6,52 @@
 /*   By: ltestard <ltestard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 06:42:46 by ltestard          #+#    #+#             */
-/*   Updated: 2023/06/26 08:37:44 by ltestard         ###   ########.fr       */
+/*   Updated: 2023/06/28 11:28:09 by ltestard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	free_pile(char **ar)
-// {
-// 	int	i;
+void	find_min(t_pile **pile_a, t_pile **min, int *min_index)
+{
+	t_pile	*tmp;
+	int		index;
 
-// 	i = 0;
-// 	while (ar[i])
-// 	{
-// 		free(ar[i]);
-// 		i++;
-// 	}
-// 	free(ar);
-// }
+	tmp = *pile_a;
+	*min = tmp;
+	*min_index = 0;
+	index = 0;
+	while (tmp)
+	{
+		if (tmp->value < (*min)->value)
+		{
+			*min = tmp;
+			*min_index = index;
+		}
+		tmp = tmp->next;
+		index++;
+	}
+}
 
-// t_pile	*get_last_elem(t_pile *pile)
-// {
-// 	t_pile	*current_elem;
+void	rotate_to_min(t_pile **pile_a, t_pile *min, int min_index)
+{
+	if (min_index > pile_size(*pile_a) / 2)
+		while ((*pile_a) != min)
+			reverse_rotate(pile_a);
+	else
+		while ((*pile_a) != min)
+			rotate(pile_a);
+}
 
-// 	current_elem = pile;
-// 	if (current_elem == NULL)
-// 		return (NULL);
-// 	while (current_elem->next)
-// 	{
-// 		current_elem = current_elem->next;
-// 	}
-// 	return (current_elem);
-// }
+void	get_push_min(t_pile **pile_a, t_pile **pile_b, int n)
+{
+	t_pile	*min;
+	int		min_index;
 
-// t_pile	*get_last_elem_before(t_pile *pile)
-// {
-// 	t_pile	*current_elem;
-
-// 	current_elem = pile;
-// 	if (current_elem == NULL || current_elem->next == NULL)
-// 		return (NULL);
-// 	while (current_elem->next->next)
-// 	{
-// 		current_elem = current_elem->next;
-// 	}
-// 	return (current_elem);
-// }
+	while (n--)
+	{
+		find_min(pile_a, &min, &min_index);
+		rotate_to_min(pile_a, min, min_index);
+		push_b(pile_a, pile_b);
+	}
+}

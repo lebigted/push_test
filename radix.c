@@ -6,7 +6,7 @@
 /*   By: ltestard <ltestard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 10:25:14 by ltestard          #+#    #+#             */
-/*   Updated: 2023/06/26 05:56:44 by ltestard         ###   ########.fr       */
+/*   Updated: 2023/06/28 11:31:04 by ltestard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	get_max(t_pile *pile_a, int *maxnum, int *maxbit)
 		(*maxbit)++;
 }
 
-void	radix_sort(t_pile *pile_a, t_pile *pile_b)
+t_pile	*radix_sort(t_pile *pile_a, t_pile *pile_b)
 {
 	int		j;
 	int		i;
@@ -72,4 +72,5 @@ void	radix_sort(t_pile *pile_a, t_pile *pile_b)
 			push_a(&pile_a, &pile_b);
 		j++;
 	}
+	return (pile_a);
 }

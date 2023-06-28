@@ -6,7 +6,7 @@
 /*   By: ltestard <ltestard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 12:54:00 by ltestard          #+#    #+#             */
-/*   Updated: 2023/06/26 09:42:55 by ltestard         ###   ########.fr       */
+/*   Updated: 2023/06/28 13:23:07 by ltestard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,32 +34,43 @@ int	check_duplicate(long int *pile, int size, int nb)
 	return (1);
 }
 
+static int	overflow_check(long result, char c, int sign)
+{
+	if (result > (INT_MAX - (c - '0')) / 10)
+	{
+		if (sign == 1)
+			exit_errorparse("error : overint\n");
+		else if (result > (-(INT_MIN + (c - '0')) / 10) + 1)
+			exit_errorparse("error : underint\n");
+	}
+	return (0);
+}
+
 int	ft_atoi(char *str)
 {
-	int		result;
+	long	result;
 	int		sign;
 	size_t	i;
 
-	result = 0;
-	sign = 1;
 	i = 0;
+	sign = 1;
+	result = 0;
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
 			sign = -1;
+		else
+			sign = 1;
 		i++;
 	}
 	while (str[i])
 	{
-		if (str[i] < '0' || str[i] > '9')
+		if (!isdigit(str[i]))
 			exit_errorparse("error : unexpected value\n");
-		result = result * 10 + (str[i] - '0');
-		i++;
+		overflow_check(result, str[i], sign);
+		result = result * 10 + (str[i++] - '0');
 	}
-	result = result * sign;
-	if (result > INT_MAX || result < INT_MIN)
-		exit_errorparse("error : overint\n");
-	return (result);
+	return ((int)(result * sign));
 }
 
 void	add_to_pile(t_pile **a, int c)

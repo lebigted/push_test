@@ -6,7 +6,7 @@
 /*   By: ltestard <ltestard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 09:47:33 by ltestard          #+#    #+#             */
-/*   Updated: 2023/06/19 09:48:15 by ltestard         ###   ########.fr       */
+/*   Updated: 2023/06/28 11:35:49 by ltestard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,17 @@ void	*ft_calloc(size_t count, size_t size)
 		return (0);
 	ft_bzero(stock, (count * size));
 	return (stock);
+}
+
+void	free_utils(char **ar)
+{
+	int	i;
+
+	i = 0;
+	while (ar[i])
+	{
+		free(ar[i]);
+		i++;
+	}
+	free(ar);
 }

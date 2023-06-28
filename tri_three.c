@@ -6,7 +6,7 @@
 /*   By: ltestard <ltestard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 10:34:54 by ltestard          #+#    #+#             */
-/*   Updated: 2023/06/26 05:13:38 by ltestard         ###   ########.fr       */
+/*   Updated: 2023/06/28 09:12:18 by ltestard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,9 @@ t_pile	*sort_list_of_three(t_pile *pile_a)
 	if (sort_pile(pile_a))
 		return (pile_a);
 	if (check_case(pile_a) == 1)
+	{
 		swap(&pile_a);
+	}
 	else if (check_case(pile_a) == 2)
 	{
 		swap(&pile_a);
